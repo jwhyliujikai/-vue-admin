@@ -147,6 +147,59 @@ export const constantRoutes = [
       }
     ]
   },
+  // 现场稽查
+  {
+    path: '/scene',
+    component: Layout,
+    name: 'Scene',
+    redirect: '/scene/proDesign',
+    meta: {
+      title: '现场稽查',
+      icon: 'nested'
+    },
+    children: [
+      // 现场方案制定
+      {
+        path: 'proDesign',
+        name: 'ProDesign',
+        component: () => import('../views/scene/proDesign.vue'),
+        meta: {
+          title: '现场方案制定',
+          icon: 'link'
+        }
+      },
+      // 现场任务监督
+      {
+        path: 'taskControl',
+        name: 'TaskControl',
+        component: () => import('../views/scene/taskControl.vue'),
+        meta: {
+          title: '现场任务监督',
+          icon: 'link'
+        }
+      },
+      // 隐患排查方案制定
+      {
+        path: 'dangerCheck',
+        name: 'DangerCheck',
+        component: () => import('../views/scene/dangerCheck.vue'),
+        meta: {
+          title: '隐患排查方案制定',
+          icon: 'tree'
+        }
+      },
+      // 隐患排查剔除审核
+      {
+        path: 'hiddenTrouble',
+        name: 'HiddenTrouble',
+        component: () => import('../views/scene/hiddenTrouble.vue'),
+        meta: {
+          title: '隐患排查剔除审核',
+          icon: 'tree'
+        }
+      }
+    ]
+  },
 
   {
     path: 'external-link',
