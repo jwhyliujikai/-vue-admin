@@ -19,75 +19,76 @@
           <el-col :span="8">
             <el-form-item label="稽查类型" prop="type" required>
               <el-select v-model="ruleForm.type" placeholder="请选择">
-                <el-option label="在线稽查存疑" value="shanghai"></el-option>
-                <el-option label="专项稽查存疑" value="beijing"></el-option>
-                <el-option label="业务重点问题" value="beijing"></el-option>
-                <el-option label="重大风险事件" value="beijing"></el-option>
-                <el-option label="突发问题" value="beijing"></el-option>
+                <el-option label="在线稽查存疑" value="shanghai" />
+                <el-option label="专项稽查存疑" value="beijing" />
+                <el-option label="业务重点问题" value="beijing" />
+                <el-option label="重大风险事件" value="beijing" />
+                <el-option label="突发问题" value="beijing" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="紧急程度" prop="urgency" required>
               <el-select v-model="ruleForm.urgency">
-                <el-option label="重要且紧急" value="shanghai"></el-option>
-                <el-option label="紧急不重要" value="beijing"></el-option>
-                <el-option label="重要不紧急" value="beijing"></el-option>
-                <el-option label="不重要不紧急" value="beijing"></el-option>
+                <el-option label="重要且紧急" value="shanghai" />
+                <el-option label="紧急不重要" value="beijing" />
+                <el-option label="重要不紧急" value="beijing" />
+                <el-option label="不重要不紧急" value="beijing" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="要求完成时间" required>
-                <el-form-item prop="date">
-                  <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date"></el-date-picker>
-                </el-form-item>
+              <el-form-item prop="date">
+                <el-date-picker v-model="ruleForm.date" type="date" placeholder="选择日期" />
+              </el-form-item>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row style="margin-left:-21px">
           <el-col>
             <el-form-item label="方案名称" prop="name" label-width="100px" required>
-              <el-input v-model="ruleForm.name" placeholder="请输入内容"></el-input>
+              <el-input v-model="ruleForm.name" placeholder="请输入内容" />
             </el-form-item>
             <el-form-item label="方案简要内容" prop="content" label-width="110px" required style="margin-left:-10px;">
-              <el-input type="textarea" v-model="ruleForm.content" placeholder="请输入内容"></el-input>
+              <el-input v-model="ruleForm.content" type="textarea" placeholder="请输入内容" />
             </el-form-item>
             <el-form-item label="处理要求" prop="deal" label-width="100px" required>
-              <el-input type="textarea" v-model="ruleForm.deal" placeholder="请输入内容"></el-input>
+              <el-input v-model="ruleForm.deal" type="textarea" placeholder="请输入内容" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row style="margin-left:-21px">
           <el-col :span="12">
-              <el-form-item label="派发信息" prop="message" label-width="100px" required >
-                <div @click="dialogVisible = true" style="width:100%">
-                <el-input v-model="ruleForm.message" placeholder="请选择" style="width:100%;"></el-input>
-                </div>
-              </el-form-item>
+            <el-form-item label="派发信息" prop="message" label-width="100px" required>
+              <div style="width:100%" @click="dialogVisible = true">
+                <el-input v-model="ruleForm.message" placeholder="请选择" style="width:100%;" />
+              </div>
+            </el-form-item>
             <el-dialog
               title="派发信息"
               :visible.sync="dialogVisible"
               width="30%"
-              :before-close="handleClose">
+              :before-close="handleClose"
+            >
               <el-tree
+                ref="tree"
                 :data="data"
                 show-checkbox
                 default-expand-all
-                node-key="id"
-                ref="tree"
                 highlight-current
-                :props="defaultProps">
-              </el-tree>
+                node-key="id"
+                :props="defaultProps"
+              />
               <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
                 <el-button type="primary" @click="getCheckedNode">确 定</el-button>
               </span>
             </el-dialog>
           </el-col>
-          <el-col :span="12" v-show="contant">
+          <el-col v-show="contant" :span="12">
             <el-form-item label="责任单位" label-width="100px">
-              <el-input v-model="ruleForm.duty"></el-input>
+              <el-input v-model="ruleForm.duty" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -100,7 +101,8 @@
                 :on-preview="handlePreview"
                 :on-remove="handleRemove"
                 multiple
-                :limit="3">
+                :limit="3"
+              >
                 <el-button size="small" type="primary">点击上传</el-button>
               </el-upload>
             </el-form-item>
@@ -116,14 +118,14 @@
           <el-radio label="2">用户明细</el-radio>
         </el-radio-group>
       </div>
-      <el-button type="primary" v-show="contant">新增明细</el-button>
+      <el-button v-show="contant" type="primary">新增明细</el-button>
     </div>
     <div class="btnDiv">
       <div v-show="contant">
-        <ul >
+        <ul>
           <li>暂无数据</li>
         </ul>
-        <Pagination :pagData = 'pagData' @callback='pagHandle' class="pagination"></Pagination>
+        <Pagination class="pagination" :pagData="pagData" @callback="pagHandle" />
       </div>
       <div class="btn">
         <el-button type="primary">保存</el-button>
@@ -137,6 +139,9 @@
 <script>
 import Pagination from '../../../../components/common/pagination'
 export default {
+  components: {
+    Pagination
+  },
   data() {
     return {
       ruleForm: {
@@ -221,9 +226,6 @@ export default {
       },
       contant: false // 控制数据、新增明细按钮的隐藏、显现
     }
-  },
-  components: {
-    Pagination
   },
   mounted() {
 

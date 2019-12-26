@@ -5,11 +5,12 @@
     <el-dialog
       :visible.sync="dialogVisible"
       width="80%"
-      top='30px'
-      :show-close=false
-      :before-close="handleClose">
+      top="30px"
+      :show-close="false"
+      :before-close="handleClose"
+    >
       <!-- <span>这是一段信息</span> -->
-      <el-carousel arrow="always" style="height:450px" :autoplay=false>
+      <el-carousel arrow="always" style="height:450px" :autoplay="false">
         <el-carousel-item v-for="item in 4" :key="item" style="height:450px">
           <h3>{{ item }}</h3>
         </el-carousel-item>
@@ -25,9 +26,9 @@
 
 <script>
 import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+// import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-  name:'menu3',
+  name: 'Menu3',
   data() {
     return {
       advanced: true,
@@ -39,22 +40,13 @@ export default {
       }
     }
   },
-  components: {
-    swiper,
-    swiperSlide
-  },
+  // components: {
+  //   swiper,
+  //   swiperSlide
+  // },
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper
-    }
-  },
-  methods: {
-    handleClose(done) {
-    this.$confirm('确认关闭？')
-      .then(_ => {
-        done();
-      })
-      .catch(_ => {});
     }
   },
   mounted() {
@@ -62,12 +54,20 @@ export default {
   // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
     console.log('this is current swiper instance object', this.swiper)
     this.swiper.slideTo(3, 1000, false)
+  },
+  methods: {
+    handleClose(done) {
+      this.$confirm('确认关闭？')
+        .then(_ => {
+          done()
+        }).catch(_ => {})
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
- .el-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
     opacity: 0.75;

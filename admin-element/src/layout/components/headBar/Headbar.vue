@@ -3,31 +3,31 @@
     <el-row>
       <el-col :span="3">
         <div class="grid-content bg-purple">
-          <i class="el-icon-edit"></i>
+          <i class="el-icon-edit" />
           <p>当前用户：&nbsp; &nbsp;郭奕汐</p>
         </div>
       </el-col>
       <el-col :span="5">
         <div class="grid-content bg-purple-light">
-          <i class="el-icon-edit"></i>
-          <p>当前登录时间：{{newDate}}</p>
+          <i class="el-icon-edit" />
+          <p>当前登录时间：{{ newDate }}</p>
         </div>
       </el-col>
       <el-col :span="4">
         <div class="grid-content bg-purple">
-          <i class="el-icon-edit"></i>
+          <i class="el-icon-edit" />
           <p>认证方式：短信动态码认证</p>
         </div>
       </el-col>
       <el-col :span="4">
         <div class="grid-content bg-purple-light">
-          <i class="el-icon-edit"></i>
+          <i class="el-icon-edit" />
           <p>登录IP：135.10.20.248</p>
         </div>
       </el-col>
       <el-col :span="6" style="float:right">
         <div class="grid-content bg-purple">
-          <i class="el-icon-edit"></i>
+          <i class="el-icon-edit" />
           <p>【系统消息】您有一条工单待处理，请及时查看</p>
         </div>
       </el-col>
@@ -37,24 +37,24 @@
 
 <script>
 import { timeFormat } from '../../../filter/index'
-  export default {
-    name: 'Headbar',
-    data() {
-      return {
-        newDate: ''
-      }
-    },
-    mounted() {
-      const _this = this;
-      let _time = (new Date()).getTime(); //返回1970年1月1日至当前时间的毫秒数
-      _this.newDate = timeFormat(_time,'yyyy/mm/dd hh:min:ss');
-      // console.log(_this.newDate)
-      setInterval(function(){
-        let _time = (new Date()).getTime();
-        _this.newDate = timeFormat(_time,'yyyy/mm/dd hh:min:ss')
-      },1000)
+export default {
+  name: 'Headbar',
+  data() {
+    return {
+      newDate: ''
     }
+  },
+  mounted() {
+    const _this = this
+    const _time = (new Date()).getTime() // 返回1970年1月1日至当前时间的毫秒数
+    _this.newDate = timeFormat(_time, 'yyyy/mm/dd hh:min:ss')
+    // console.log(_this.newDate)
+    setInterval(function() {
+      const _time = (new Date()).getTime()
+      _this.newDate = timeFormat(_time, 'yyyy/mm/dd hh:min:ss')
+    }, 1000)
   }
+}
 </script>
 
 <style lang="scss" scoped>

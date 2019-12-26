@@ -5,7 +5,7 @@
         <span>隐患排查方案制定</span>
         <el-form ref="form" :model="form" label-width="80px" style="width:280px">
           <el-form-item label="方案名称">
-            <el-input v-model="form.name"></el-input>
+            <el-input v-model="form.name" />
           </el-form-item>
         </el-form>
         <div class="btnDiv">
