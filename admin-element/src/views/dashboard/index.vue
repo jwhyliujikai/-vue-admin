@@ -13,19 +13,19 @@
       </div>
     </div> -->
     <!-- <svg-icon icon-class="user"></svg-icon> -->
-    <typeMenu :titList='titList'></typeMenu>
+    <typeMenu :titList= 'titList'></typeMenu>
   </div>
 </template>
 
 <script>
 import typeMenu from '../../components/typeMenu.vue'
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 import data from '../../assets/js/dashboard'
 export default {
   name: 'Dashboard',
-  data(){
+  data() {
     return {
-      titList:data.titList
+      titList: data.titList
     }
   },
   computed: {
@@ -33,7 +33,7 @@ export default {
     //   'name'
     // ])
   },
-  components:{
+  components: {
     typeMenu
   }
 }

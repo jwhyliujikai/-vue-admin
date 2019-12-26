@@ -26,44 +26,44 @@
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  export default {
-    name:'menu3',
-    data(){
-      return{
-        advanced:true,
-        dialogVisible: false,
-        swiperOption: {
-          // some swiper options/callbacks
-          // 所有的参数同 swiper 官方 api 参数
-          // ...
-        }
+export default {
+  name:'menu3',
+  data() {
+    return {
+      advanced: true,
+      dialogVisible: false,
+      swiperOption: {
+        // some swiper options/callbacks
+        // 所有的参数同 swiper 官方 api 参数
+        // ...
       }
-    },
-    components: {
+    }
+  },
+  components: {
     swiper,
     swiperSlide
   },
   computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      }
-    },
-     methods: {
-      handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
-      }
-    },
-    mounted() {
-      // current swiper instance
-      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-      console.log('this is current swiper instance object', this.swiper)
-      this.swiper.slideTo(3, 1000, false)
+    swiper() {
+      return this.$refs.mySwiper.swiper
     }
+  },
+  methods: {
+    handleClose(done) {
+    this.$confirm('确认关闭？')
+      .then(_ => {
+        done();
+      })
+      .catch(_ => {});
+    }
+  },
+  mounted() {
+  // current swiper instance
+  // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
+    console.log('this is current swiper instance object', this.swiper)
+    this.swiper.slideTo(3, 1000, false)
   }
+}
 </script>
 
 <style lang="scss" scoped>

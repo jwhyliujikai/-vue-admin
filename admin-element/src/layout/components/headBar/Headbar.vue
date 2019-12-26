@@ -38,13 +38,13 @@
 <script>
 import { timeFormat } from '../../../filter/index'
   export default {
-    name:'Headbar',
-    data(){
-      return{
-        newDate:''
+    name: 'Headbar',
+    data() {
+      return {
+        newDate: ''
       }
     },
-    mounted(){
+    mounted() {
       const _this = this;
       let _time = (new Date()).getTime(); //返回1970年1月1日至当前时间的毫秒数
       _this.newDate = timeFormat(_time,'yyyy/mm/dd hh:min:ss');
@@ -53,9 +53,7 @@ import { timeFormat } from '../../../filter/index'
         let _time = (new Date()).getTime();
         _this.newDate = timeFormat(_time,'yyyy/mm/dd hh:min:ss')
       },1000)
-
     }
-
   }
 </script>
 

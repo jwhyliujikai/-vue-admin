@@ -17,7 +17,7 @@
       <el-form :model="ruleForm" :rules="rules" class="demo-form-inline">
         <el-row>
           <el-col :span="8">
-            <el-form-item label="稽查类型" prop="type" required >
+            <el-form-item label="稽查类型" prop="type" required>
               <el-select v-model="ruleForm.type" placeholder="请选择">
                 <el-option label="在线稽查存疑" value="shanghai"></el-option>
                 <el-option label="专项稽查存疑" value="beijing"></el-option>
@@ -147,7 +147,7 @@ export default {
         content: '',
         deal: '',
         message: '',
-        duty:'',
+        duty: ''
       },
       rules: {
         type: [
@@ -168,44 +168,44 @@ export default {
         deal: [
           { required: true, message: '请输入处理要求', trigger: 'blur' }
         ],
-        message:[
+        message: [
           { required: true, message: '请输入派发信息', trigger: 'blur' }
         ]
       },
       dialogVisible: false,
-      data:[{
+      data: [{
         id: 1,
         label: '河南',
         children: [{
           id: 2,
-          label: '国网河南省电力公司',
-        },{
+          label: '国网河南省电力公司'
+        }, {
           id: 3,
-          label: '国网郑州供电公司',
-        },{
+          label: '国网郑州供电公司'
+        }, {
           id: 4,
-          label: '国网平顶山供电公司',
-        },{
+          label: '国网平顶山供电公司'
+        }, {
           id: 5,
-          label: '国网南阳供电公司',
-        },{
+          label: '国网南阳供电公司'
+        }, {
           id: 6,
-          label: '国网洛阳供电公司',
-        },{
+          label: '国网洛阳供电公司'
+        }, {
           id: 7,
-          label: '国网安阳供电公司',
-        },{
+          label: '国网安阳供电公司'
+        }, {
           id: 8,
-          label: '国网开封供电公司',
-        },{
+          label: '国网开封供电公司'
+        }, {
           id: 9,
-          label: '国网新乡供电公司',
-        },{
+          label: '国网新乡供电公司'
+        }, {
           id: 10,
-          label: '国网焦作供电公司',
-        },{
+          label: '国网焦作供电公司'
+        }, {
           id: 11,
-          label: '国网三门峡供电公司',
+          label: '国网三门峡供电公司'
         }
         ]
       }],
@@ -213,70 +213,70 @@ export default {
         children: 'children',
         label: 'label'
       },
-      radio: '1' ,// 单选按钮
-      pagData:{
-        total:100,
-        pageSize:10,
-        pageSizes:[5,10,20,50]
+      radio: '1', // 单选按钮
+      pagData: {
+        total: 100,
+        pageSize: 10,
+        pageSizes: [5, 10, 20, 50]
       },
-      contant:false, // 控制数据、新增明细按钮的隐藏、显现
+      contant: false // 控制数据、新增明细按钮的隐藏、显现
     }
   },
-  components:{
+  components: {
     Pagination
+  },
+  mounted() {
+
   },
   methods: {
     handleClose(done) {
       // console.log(done)
       this.$confirm('确认关闭？')
         .then(_ => {
-          done();
+          done()
         })
-        .catch(_ => {});
+        .catch(_ => {})
     },
     handleRemove(file) {
-        console.log(file);
-      },
-      handlePreview(file) {
-        console.log(file);
-      },
-      // handleSizeChange(val){
-      //   console.log(val)
-      // },
-      // handleCurrentChange(val){
-      //   console.log(val)
-      // },
-      pagHandle(val){
-        console.log(val)
-      },
-      radioHandle(val){
-        // console.log(val)
-        if(val == 1){
-          this.contant = false;
-        }else{
-          this.contant= true;
-        }
-      },
-      // 派发信息弹框选中事件
-      getCheckedNode(val){
-        this.dialogVisible = false
-        // console.log(this.$refs.tree.getCheckedNodes())
-        var arrTree = this.$refs.tree.getCheckedNodes();
-        // console.log(arrTree)
-        var arrMessage = [];
-        let ids = '' ;
-        arrTree.map((item)=>{
-          arrMessage.push(item.label);
-          return arrMessage
-        })
-        // console.log(arrMessage)
-        ids = arrMessage.join(',')
-        // console.log(ids)
-        this.ruleForm.message = ids;
+      console.log(file)
+    },
+    handlePreview(file) {
+      console.log(file)
+    },
+    // handleSizeChange(val){
+    //   console.log(val)
+    // },
+    // handleCurrentChange(val){
+    //   console.log(val)
+    // },
+    pagHandle(val) {
+      console.log(val)
+    },
+    radioHandle(val) {
+      // console.log(val)
+      if (val === 1) {
+        this.contant = false
+      } else {
+        this.contant = true
       }
-  },
-  mounted(){
-
+    },
+    // 派发信息弹框选中事件
+    getCheckedNode(val) {
+      this.dialogVisible = false
+      // console.log(this.$refs.tree.getCheckedNodes())
+      var arrTree = this.$refs.tree.getCheckedNodes()
+      // console.log(arrTree)
+      var arrMessage = []
+      let ids = ''
+      arrTree.map((item) => {
+        arrMessage.push(item.label)
+        return arrMessage
+      })
+      // console.log(arrMessage)
+      ids = arrMessage.join(',')
+      // console.log(ids)
+      this.ruleForm.message = ids
+    }
   }
 }
 </script>
