@@ -125,7 +125,7 @@
         <ul>
           <li>暂无数据</li>
         </ul>
-        <Pagination class="pagination" :pagData="pagData" @callback="pagHandle" />
+        <Pagination class="pagination" :pag-data="pagData" @callback="pagHandle" />
       </div>
       <div class="btn">
         <el-button type="primary">保存</el-button>
