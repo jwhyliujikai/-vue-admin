@@ -76,12 +76,17 @@
         </template>
       </el-table-column>
     </el-table>
+    <pagination :pag-data="pagData" @callback="pagHandle"/>
   </div>
 </template>
 
 <script>
 import { getTableList } from '../../api/hiddenTrouble'
+import pagination from '../../components/common/pagination'
 export default {
+  components: {
+    pagination
+  },
   data() {
     return {
       formInline: {
@@ -93,6 +98,11 @@ export default {
         check: '全部'
       },
       tableData: [], // 表格数据
+      pagData: { // 分页信息
+        total: 0,
+        pageSize: 10,
+        pageSizes: [5, 10, 20, 50]
+      },
       columns: [{
         hasSort: false, // <Boolean> 是否排序
         prop: 'id', // <String>  对应属性名
@@ -198,10 +208,15 @@ export default {
     // 获取table数据
     fetchData() {
       getTableList().then(res => {
-        // console.log(res)
+        console.log(res)
         this.tableData = res.data.items
+        this.pagData.total = res.data.total
       })
-    }
+    },
+    // 分页自定义函数
+    pagHandle(val) {
+      console.log(val)
+    },
   }
 
 }
