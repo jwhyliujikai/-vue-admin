@@ -5,12 +5,14 @@ import user from './user'
 import table from './table'
 import menu2 from './menu2'
 import taskControl from './taskControl'
+import hiddenTrouble from './hiddenTrouble'
 
 const mocks = [
   ...user,
   ...table,
   ...menu2,
-  ...taskControl
+  ...taskControl,
+  ...hiddenTrouble
 ]
 
 // for front mock
