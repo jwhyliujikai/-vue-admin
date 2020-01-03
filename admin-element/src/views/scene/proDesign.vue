@@ -66,7 +66,10 @@ export default {
         },
         series: [{
           name: '销量',
-          type: 'bar',
+          type: 'pictorialBar',
+          symbolSize: ['30%', '100%'],
+          symbolOffset: ['-70%', 0],
+          symbol: 'path://M150 50 L130 130 L170 130 Z',
           data: [5, 20, 36, 10, 10, 20]
         }]
       },
