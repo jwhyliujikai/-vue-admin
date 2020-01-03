@@ -11,6 +11,13 @@
 
 <script>
 import columnEchars from '../../components/common/columnEchars'
+var data = [5, 20, 36, 10, 10, 20]
+var data1 = [15, 15, 30, 20, 20, 30]
+var yMax = 40
+var dataShadow = []
+for (var i = 0; i < data.length; i++) {
+  dataShadow.push(yMax)
+}
 export default {
   components: {
     columnEchars
@@ -19,7 +26,7 @@ export default {
     return {
       option: {
         id: 'echarsone',
-        color: ['blue'],
+        color: ['blue', 'red'],
         title: { // 标题组件，包含主标题和副标题。
           text: 'ECharts 入门示例' // 主标题
           // subtext: '纯属虚构' // 副标题
@@ -37,7 +44,7 @@ export default {
         xAxis: {
           //  type:'value',
           axisTick: {
-            show: false // 去掉x轴刻度
+            // show: false // 去掉x轴刻度
           },
           data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
         },
@@ -55,7 +62,7 @@ export default {
             }
           },
           axisTick: {
-            show: false // 去掉y轴刻度
+            // show: false // 去掉y轴刻度
           },
           axisLine: {
             // show:false, // 是否显示Y轴
@@ -71,11 +78,18 @@ export default {
           symbolOffset: ['-70%', 0],
           symbol: 'path://M150 50 L130 130 L170 130 Z',
           data: [5, 20, 36, 10, 10, 20]
+        }, {
+          name: '属性',
+          type: 'pictorialBar',
+          symbolSize: ['30%', '100%'],
+          symbolOffset: ['90%', 0],
+          symbol: 'path://M150 50 L130 130 L170 130 Z',
+          data: [5, 20, 36, 10, 10, 20]
         }]
       },
       option1: {
         id: 'echarstwo',
-        color: ['blue'],
+        color: ['blue', 'red'],
         title: { // 标题组件，包含主标题和副标题。
           text: 'ECharts 入门示例' // 主标题
           // subtext: '纯属虚构' // 副标题
@@ -121,9 +135,23 @@ export default {
           }
         },
         series: [{
+          // For shadow 柱状额阴影部分
+          type: 'bar',
+          itemStyle: {
+            color: 'rgba(0,0,0,0.05)'
+          },
+          barGap: '-100%',
+          barCategoryGap: '40%',
+          data: dataShadow
+          // animation: false
+        }, {
           name: '销量',
           type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
+          data: data
+        }, {
+          name: '属性',
+          type: 'bar',
+          data: data1
         }]
       }
     }

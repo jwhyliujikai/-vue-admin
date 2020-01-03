@@ -29,17 +29,17 @@ export default {
     drawEchars(objEchars) {
       console.log(objEchars.id)
       var myChart = this.echarts.init(document.getElementById(objEchars.id))
-      console.log(myChart)
-      var option = {
-        color: objEchars.color, // 柱状显示的颜色
-        title: objEchars.title, // 标题组件，包含主标题和副标题。
-        legend: objEchars.legend, // 图例组件
-        xAxis: objEchars.xAxis, //
-        yAxis: objEchars.yAxis,
-        series: objEchars.series
-      }
+      // console.log(myChart)
+      // var option = {
+      //   color: objEchars.color, // 柱状显示的颜色
+      //   title: objEchars.title, // 标题组件，包含主标题和副标题。
+      //   legend: objEchars.legend, // 图例组件
+      //   xAxis: objEchars.xAxis, //
+      //   yAxis: objEchars.yAxis,
+      //   series: objEchars.series
+      // }
       console.log(objEchars)
-      myChart.setOption(option)
+      myChart.setOption(objEchars)
     }
   }
 }
@@ -52,6 +52,14 @@ export default {
 }
 #echarstwo{
   height: 500px;
-  width: 400px;
+  width: 800px;
+}
+#areaChart{
+  height: 500px;
+  width: 650px;
+}
+#echarsfour{
+  height: 500px;
+  width: 650px;
 }
 </style>
