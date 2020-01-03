@@ -76,7 +76,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <pagination :pag-data="pagData" @callback="pagHandle"/>
+    <pagination :pag-data="pagData" @callback="pagHandle" />
   </div>
 </template>
 
@@ -170,6 +170,7 @@ export default {
     // 从store中取出存储的form的查询条件
     this.formInline = this.$store.state.hiddenTrouble
     this.fetchData()
+    console.log(this.formInline)
   },
   methods: {
     // 查询
@@ -183,7 +184,7 @@ export default {
         date2: _this.formInline.date2,
         check: _this.formInline.check
       }
-      // console.log(formInline)
+      console.log(formInline)
       this.$store.commit('savehiddenTrouble', formInline)
     },
     // 清空
@@ -216,7 +217,7 @@ export default {
     // 分页自定义函数
     pagHandle(val) {
       console.log(val)
-    },
+    }
   }
 
 }

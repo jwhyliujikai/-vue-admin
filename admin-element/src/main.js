@@ -16,6 +16,7 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import Echarts from 'echarts'
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -34,7 +35,8 @@ Vue.use(ElementUI, { locale })
 // Vue.use(VueAwesomeSwiper, /* { default global options } */)
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
-
+Vue.prototype.echarts = Echarts
+Vue.use(Echarts)
 Vue.config.productionTip = false
 
 new Vue({

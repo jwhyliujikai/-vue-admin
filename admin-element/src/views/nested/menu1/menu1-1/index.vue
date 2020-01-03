@@ -244,7 +244,10 @@ export default {
     },
     radioHandle(val) {
       // console.log(val)
-      if (val === 1) {
+      // console.log(typeof(val))
+      const v = Number(val)
+      // console.log(typeof(v))
+      if (v === 1) {
         this.contant = false
       } else {
         this.contant = true
