@@ -197,6 +197,16 @@ export const constantRoutes = [
           title: '隐患排查剔除审核',
           icon: 'tree'
         }
+      },
+      // 组件封装测试
+      {
+        path: 'testComponent',
+        name: 'TestComponent',
+        component: () => import('../views/scene/testComponent.vue'),
+        meta: {
+          title: '组件封装测试',
+          icon: 'tree'
+        }
       }
     ]
   },

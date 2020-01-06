@@ -3,7 +3,7 @@
     现场稽查
     <columnEchars :obj-echars="option" />
     <columnEchars :obj-echars="option1" />
-    <columnEchars :obj-echars="option4" />
+    <columnEchars :obj-echars="option5" />
   </div>
 </template>
 
@@ -206,6 +206,55 @@ export default {
           show: true,
           data: ['A', 'B', 'C', 'D']
         }
+      },
+      option5: {
+        id: 'echarsfive',
+        title: {
+          text: '多雷达图'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          left: 'center',
+          data: ['某软件', '某主食手机', '某水果手机', '降水量', '蒸发量']
+        },
+        radar: [
+          {
+            indicator: [
+              { text: '外观', max: 100 },
+              { text: '拍照', max: 100 },
+              { text: '系统', max: 100 },
+              { text: '性能', max: 100 },
+              { text: '屏幕', max: 100 }
+            ],
+            // radius: 80,
+            // center: ['50%', '60%']
+            splitArea: {
+              areaStyle: {
+                color: ['rgba(110, 172, 200, 1)'],
+                shadowColor: 'rgba(0, 0, 0, 0.3)',
+                shadowBlur: 10
+              }
+            }
+          }
+        ],
+        series: [
+          {
+            color: 'skyblue', // 修改阴影颜色
+            type: 'radar',
+            tooltip: {
+              trigger: 'item'
+            },
+            areaStyle: {},
+            data: [
+              {
+                value: [50, 50, 50, 50, 50],
+                name: '某软件'
+              }
+            ]
+          }
+        ]
       }
     }
   }
