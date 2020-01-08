@@ -171,6 +171,7 @@ export default {
     this.formInline = this.$store.state.hiddenTrouble
     this.fetchData()
     console.log(this.formInline)
+    console.log(this.$route.query)
   },
   methods: {
     // 查询

@@ -207,6 +207,16 @@ export const constantRoutes = [
           title: '组件封装测试',
           icon: 'tree'
         }
+      },
+      // 蜂窝图
+      {
+        path: 'control',
+        name: 'control',
+        component: () => import('../views/scene/control.vue'),
+        meta: {
+          title: '蜂窝图',
+          icon: 'tree'
+        }
       }
     ]
   },

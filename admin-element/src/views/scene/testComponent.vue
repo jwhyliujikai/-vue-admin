@@ -6,6 +6,9 @@
     <spanOneCompnent :span-one-obj="spanOneObj" />
     <spanTwoCompnent :span-two-obj="spanTwoObj" />
     <flowChartUl :flow-chart-arr="flowChartArr" />
+    <ul>
+      <router-link :to="{name: 'HiddenTrouble', query: { spanTwoObj:spanTwoObj }}" tag="li">test路由传参</router-link>
+    </ul>
   </div>
 
 </template>
