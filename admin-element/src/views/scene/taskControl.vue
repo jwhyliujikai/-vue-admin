@@ -4,14 +4,17 @@
     <columnEchars :obj-echars="option" />
     <columnEchars :obj-echars="option1" />
     <columnEchars :obj-echars="option5" />
+    <columnEchars :obj-echars="option6" />
   </div>
 </template>
 
 <script>
 import columnEchars from '../../components/common/columnEchars'
+import VueDragResize from 'vue-drag-resize'
 export default {
   components: {
-    columnEchars
+    columnEchars,
+    VueDragResize
   },
   data() {
     return {
@@ -253,6 +256,68 @@ export default {
                 name: '某软件'
               }
             ]
+          }
+        ]
+      },
+      option6: {
+        id: "echarsseven",
+        tooltip: {
+          trigger: 'axis',
+          position: function (pt) {
+              return [pt[0], '10%'];
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        },
+        yAxis: {
+          type: 'value',
+          boundaryGap: [0, '100%']
+        },
+        series: [
+          {
+            name: '模拟数据',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: '#a2c4e6'
+            },
+            areaStyle: {
+              color: this.echarts.graphic.LinearGradient(0, 0, 0, 1,[{
+                  offset: 0,
+                  color: '#a2c4e6'
+              },{
+                  offset: 1,
+                  color: '#a2c4e6'
+              }
+              ])
+            },
+            data: ['75', '85', '99', '110', '120', '150', '130', '110', '109', '78', '65', '53']
+          },
+          {
+            name: '模拟数据',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: '#97d0a2'
+            },
+            areaStyle: {
+              color:  this.echarts.graphic.LinearGradient(0, 0, 0, 1,[{
+                offset: 0,
+                color: '#97d0a2'
+              },{
+                offset: 1,
+                color: '#97d0a2'
+              }
+              ])
+            },
+            data: ['50', '75', '89', '100', '110', '140', '120', '100', '99', '68', '55', '43']
           }
         ]
       }

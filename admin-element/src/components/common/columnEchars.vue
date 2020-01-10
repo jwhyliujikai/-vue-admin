@@ -66,4 +66,8 @@ export default {
   height: 500px;
   width: 650px;
 }
+#echarsseven{
+  height: 500px;
+  width: 650px;
+}
 </style>
