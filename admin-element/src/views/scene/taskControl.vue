@@ -10,9 +10,11 @@
 
 <script>
 import columnEchars from '../../components/common/columnEchars'
+import VueDragResize from 'vue-drag-resize'
 export default {
   components: {
-    columnEchars
+    columnEchars,
+    VueDragResize
   },
   data() {
     return {
@@ -306,7 +308,7 @@ export default {
               color: '#97d0a2'
             },
             areaStyle: {
-              color: this.echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              color:  this.echarts.graphic.LinearGradient(0, 0, 0, 1,[{
                 offset: 0,
                 color: '#97d0a2'
               },{
